@@ -59,7 +59,6 @@ def mars_news(browser):
 #################################################
 # JPL Mars Space Images - Featured Image
 #################################################
-# NASA JPL (Jet Propulsion Laboratory) Site Web Scraper
 def featured_image(browser):
     # Visit the NASA JPL (Jet Propulsion Laboratory) Site
     url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
@@ -92,7 +91,6 @@ def featured_image(browser):
 #################################################
 # Mars Weather
 #################################################
-# Mars Weather Twitter Account Web Scraper
 def twitter_weather(browser):
     # Visit the Mars Weather Twitter Account
     url = "https://twitter.com/marswxreport?lang=en"
@@ -116,23 +114,20 @@ def twitter_weather(browser):
 #################################################
 # Mars Facts
 #################################################
-# Mars Facts Web Scraper
 def mars_facts():
-    # Visit the Mars Facts Site Using Pandas to Read
     try:
         df = pd.read_html("https://space-facts.com/mars/")[0]
     except BaseException:
         return None
     df.columns=["Description", "Value"]
-    df.set_index("Description", inplace=True)
+    # df.set_index("Description", inplace=True)
 
-    return df.to_html(classes="table table-striped")
+    return df.to_html(classes="table table-light")
 
 
 #################################################
 # Mars Hemispheres
 #################################################
-# Mars Hemispheres Web Scraper
 def hemisphere(browser):
     # Visit the USGS Astrogeology Science Center Site
     url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
